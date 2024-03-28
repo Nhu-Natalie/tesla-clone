@@ -1,0 +1,39 @@
+:root {
+    --primary-color: #393c41;
+    --text-grey-button: #ffffff;
+    --text-white-button: #333333;
+    --bg-grey-button: rgba(23, 26, 32, 0.8);
+    --bg-white-button: rgba(255, 255, 255, 1)
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Rubik", sans-serif;
+    box-sizing: border-box;
+    color: var(--primary-color);
+}
+
+body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+@keyframes animateDown {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(5px);
+    }
+
+    60% {
+        transform: translateY(3px);
+    }
+}
