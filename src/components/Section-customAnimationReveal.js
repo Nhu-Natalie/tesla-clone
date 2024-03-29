@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Fade } from "react-awesome-reveal";
+import { keyframes } from "@emotion/react";
+import { Reveal } from "react-awesome-reveal";
 
 // Có 2 cách truyền tham số cho hàm
 // function Section(props) {} >> <h1>{props.title}</h1>
@@ -9,15 +10,13 @@ import { Fade } from "react-awesome-reveal";
 function Section({ title, description, leftBtnText, rightBtnText, backgroundImg }) {
     // console.log("backgroundImg: ", backgroundImg)
     return (
-        <Wrap bgImage={backgroundImg}>
-            <Fade direction="up">
+        <Reveal keyframes={customAnimation}>
+            <Wrap bgImage={backgroundImg}>
                 <ItemText>
                     <h1>{title}</h1>
                     <p>{description}</p>
                 </ItemText>
-            </Fade>
-            <Buttons>
-                <Fade direction="up">
+                <Buttons>
                     <ButtonGroup>
                         <LeftButton>
                             {leftBtnText}
@@ -30,13 +29,25 @@ function Section({ title, description, leftBtnText, rightBtnText, backgroundImg 
                         }
                     </ButtonGroup>
                     <DownArrow src="/images/down-arrow.svg" />
-                </Fade>
-            </Buttons>
-        </Wrap>
+                </Buttons>
+            </Wrap>
+        </Reveal>
     )
 }
 
 export default Section
+
+const customAnimation = keyframes`
+    from {
+        opacity: 0;
+        transform: translate3d(0, 200px, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 60px, 0);
+    }
+`
 
 const Wrap = styled.div`
     width: 100vw;
